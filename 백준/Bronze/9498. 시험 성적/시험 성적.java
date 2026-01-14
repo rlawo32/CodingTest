@@ -1,20 +1,21 @@
 import java.io.*;
 
 public class Main {
-    
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        if(n >= 90) {
-            System.out.print("A");
-        } else if(n >= 80) {
-            System.out.print("B");
-        } else if(n >= 70) {
-            System.out.print("C");
-        } else if(n >= 60) {
-            System.out.print("D");
+        int score = Integer.parseInt(br.readLine());
+        String result = "";
+        if(score >= 90) {
+            result = "A";
+        } else if(score >= 80) {
+            result = "B";
+        } else if(score >= 70) {
+            result = "C";
+        } else if(score >= 60) {
+            result = "D";
         } else {
-            System.out.print("F");
+            result = "F";
         }
+        System.out.print(result);
     }
 }
