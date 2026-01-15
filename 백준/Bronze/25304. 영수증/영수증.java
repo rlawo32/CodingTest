@@ -1,24 +1,19 @@
 import java.io.*;
+import java.util.*;
 
-public class Main {
-    
-    public static void main(String[] args) throws Exception {
+public class Main { 
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int total = Integer.parseInt(br.readLine());
-        int count = Integer.parseInt(br.readLine());
-        int result = 0;
-        
-        for(int i=0; i<count; i++) {
-            String[] product = br.readLine().split(" ");
-            int item1 = Integer.parseInt(product[0]);
-            int item2 = Integer.parseInt(product[1]);
-            result += (item1 * item2);
+        int n = Integer.parseInt(br.readLine());
+        int m = Integer.parseInt(br.readLine());
+        int x = 0;
+        String result = "";
+        for(int i=0; i<m; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            x += a*b;
         }
-        
-        if(total == result) {
-            System.out.println("Yes");   
-        } else {            
-            System.out.println("No");
-        }
+        System.out.print(n == x ? "Yes" : "No");
     }
 }
