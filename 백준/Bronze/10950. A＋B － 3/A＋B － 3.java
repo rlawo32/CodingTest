@@ -1,16 +1,17 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
-    
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        
+        StringBuilder sb = new StringBuilder();
         for(int i=0; i<n; i++) {
-            String[] N = br.readLine().split(" ");
-            int a = Integer.parseInt(N[0]);
-            int b = Integer.parseInt(N[1]);
-            System.out.println(a+b);
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            sb.append(a+b).append("\n");
         }
+        System.out.print(sb);
     }
 }
