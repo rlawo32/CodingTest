@@ -1,17 +1,13 @@
 import java.io.*;
 
 public class Main {
-    
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int total = Integer.parseInt(br.readLine());
-        int count = total / 4;
-        
-        for(int i=0; i<count; i++) {
-            System.out.print("long");
-            System.out.print(" ");
+        int n = Integer.parseInt(br.readLine());
+        String result = "";
+        for(int i=0; i<(n/4); i++) {
+            result += "long ";
         }
-        
-        System.out.println("int");
+        System.out.print(result+"int");
     }
 }
