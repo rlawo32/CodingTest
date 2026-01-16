@@ -1,17 +1,15 @@
+import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
         int[] arr = new int[n];
-        
-        for(int i=0; i<arr.length; i++) {
-            arr[i] = sc.nextInt();
-        }
-        
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int i = 0;
+        while (st.hasMoreTokens()) { arr[i] = Integer.parseInt(st.nextToken()); i++; }
         Arrays.sort(arr);
-        
-        System.out.print(arr[0] + " " + arr[arr.length-1]);
+        System.out.print(arr[0] + " " + arr[n-1]);
     }
 }
