@@ -1,21 +1,17 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
-    
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int count = Integer.parseInt(br.readLine());
-        
-        for(int i=1; i<=count; i++) {
-            String[] values = br.readLine().split(" ");
-            int val1 = Integer.parseInt(values[0]);
-            int val2 = Integer.parseInt(values[1]);
-            bw.write("Case #" + i + ": " + (val1 + val2) + "\n");
+        int n = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
+        for(int i=1; i<=n; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            sb.append("Case #" + i + ": " + (a+b)).append("\n");
         }
-        br.close();
-
-        bw.flush();
-        bw.close();
+        System.out.print(sb);
     }
 }
