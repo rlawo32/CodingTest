@@ -1,22 +1,14 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
-    
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int len = Integer.parseInt(br.readLine());
-        String[] arr = br.readLine().split(" ");
-        int idx = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int m = Integer.parseInt(br.readLine());
         int cnt = 0;
-
-        for(int i=0; i<len; i++) {
-            if(idx == Integer.parseInt(arr[i])) {
-                cnt++;
-            }
-        }
-        br.close();
-
-        System.out.println(cnt);
+        while (st.hasMoreTokens()) { if(m == Integer.parseInt(st.nextToken())) cnt++; }
+        System.out.print(cnt);
     }
 }
-        
