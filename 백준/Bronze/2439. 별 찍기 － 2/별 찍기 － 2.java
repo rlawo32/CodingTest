@@ -1,26 +1,19 @@
 import java.io.*;
 
 public class Main {
-    
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int count = Integer.parseInt(br.readLine());
-        
-        for(int i=count; i>=1; i--) {
-            String star = "";
-            for(int j=0; j<count; j++) {
-                if(j >= (i-1)) {
-                    star+= "*";
-                } else {
-                    star+= " ";
-                }
+        int n = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
+        for(int i=n; i>=1; i--) {
+            for(int x=0; x<(i-1); x++) {
+                sb.append(" ");
             }
-            bw.write(star + "\n");
+            for(int y=0; y<=(n-i); y++) {
+                sb.append("*");
+            }
+            sb.append("\n");
         }
-        br.close();
-
-        bw.flush();
-        bw.close();
+        System.out.print(sb);
     }
 }
