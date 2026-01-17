@@ -1,39 +1,16 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int[] arr = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
-        int res = 0;
-        
-        for(int i=0; i<10; i++) {
-            int cnt = 0;
-            int a = Integer.parseInt(br.readLine());
-            int b = a % 42;
-            
-            for(int j : arr) {
-                if(b == j) {
-                    cnt++;
-                    break;
-                } 
-            }
-            
-            if(cnt == 0) {
-                arr[i] = b;
-            }
+        Map<Integer, Integer> map = new HashMap<>();
+        String line;
+        while ((line = br.readLine()) != null) {
+            int n = Integer.parseInt(line);
+            int m = n % 42;
+            map.put(m, map.getOrDefault(m, 0)+1);
         }
-        
-        br.close();
-        
-        for(int i : arr) {
-            if(i != -1) {
-                res++;
-            }
-        }
-        
-        bw.write(String.valueOf(res));
-        bw.flush();
-        bw.close();
+        System.out.print(map.size());
     }
 }
