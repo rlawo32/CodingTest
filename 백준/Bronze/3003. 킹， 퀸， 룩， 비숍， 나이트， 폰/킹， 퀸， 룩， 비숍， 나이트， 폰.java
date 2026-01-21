@@ -2,17 +2,22 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        br.close();
+        StringTokenizer st = new StringTokenizer(br.readLine());
         int[] arr = {1, 1, 2, 2, 2, 8};
-        for(int i=0; i<6; i++) {
+        int[] result = new int[6];
+        int idx = 0;
+        while (st.hasMoreTokens()) {
             int n = Integer.parseInt(st.nextToken());
-            bw.write((arr[i]-n)+" ");
+            if(idx > 5) { break; }
+            result[idx] = arr[idx] - n;
+            idx++;
         }
-        bw.flush();
-        bw.close();
+        StringBuilder sb = new StringBuilder();
+        for(int i : result) {
+            sb.append(i + " ");
+        }
+        System.out.print(sb);
     }
 }
