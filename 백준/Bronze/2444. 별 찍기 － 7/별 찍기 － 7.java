@@ -1,30 +1,31 @@
 import java.io.*;
-import java.lang.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int N = Integer.parseInt(br.readLine());
-        int M = 1;
-        br.close();
-        for(int i=1; i<=(N*2-1); i++) {
-            int n = Math.abs(i-N);
-            String line = "";
-            for(int j=0; j<n; j++) {
-                line += " ";
+        int n = Integer.parseInt(br.readLine());
+        int m = n-1;
+        int r = n+m;
+        boolean t = false;
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<r; i++) {
+            for(int j=0; j<m; j++) {
+                sb.append(" ");
             }
-            for(int k=0; k<M; k++) {
-                line += "*";
+            for(int j=0; j<r-(m*2); j++) {
+                sb.append("*");
             }
-            if(i < N) {
-                M += 2;    
+            sb.append("\n");
+            if(m == 0) {
+                t = true;
+            }
+            
+            if(t) {
+                m++;
             } else {
-                M -= 2;
+                m--;
             }
-            bw.write(line+"\n");
         }
-        bw.flush();
-        bw.close();
+        System.out.print(sb);
     }
 }
