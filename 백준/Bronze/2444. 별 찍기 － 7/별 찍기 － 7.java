@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -6,25 +7,17 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         int m = n-1;
         int r = n+m;
-        boolean t = false;
         StringBuilder sb = new StringBuilder();
         for(int i=0; i<r; i++) {
-            for(int j=0; j<m; j++) {
+            int t = Math.abs(m);
+            for(int j=0; j<t; j++) {
                 sb.append(" ");
             }
-            for(int j=0; j<r-(m*2); j++) {
+            for(int j=0; j<r-(t*2); j++) {
                 sb.append("*");
             }
             sb.append("\n");
-            if(m == 0) {
-                t = true;
-            }
-            
-            if(t) {
-                m++;
-            } else {
-                m--;
-            }
+            m--;
         }
         System.out.print(sb);
     }
