@@ -1,23 +1,18 @@
 import java.io.*;
-import java.lang.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String N = br.readLine();
-        int len = N.length()/2;
-        int res = 1;
-        
-        for(int i=0; i<len; i++) {
-            if(!N.substring(i, i+1).equals(N.substring(N.length()-(i+1), N.length()-i))) {
-                res = 0;
-                break;
-            }
+        String s = br.readLine();
+        String r = "";
+        for(int i=s.length()-1; i>=0; i--) {
+            char c = s.charAt(i);
+            r += String.valueOf(c);
         }
-        bw.write(res+"");
-        
-        bw.flush();
-        bw.close();
+        if(s.equals(r)) {
+            System.out.print(1);
+        } else {
+            System.out.print(0);
+        }
     }
 }
