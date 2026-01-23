@@ -1,17 +1,13 @@
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String[] arr = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
-        String str = br.readLine();
-        br.close();
-        for(String s : arr) {
-            str = str.replace(s, "*");
+        String s = br.readLine();
+        String[] cr = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
+        for(int i=0; i<cr.length; i++) {
+            s = s.replace(cr[i], "*");
         }
-        bw.write(str.length()+"");
-        bw.flush();
-        bw.close();
+        System.out.print(s.length());
     }
 }
