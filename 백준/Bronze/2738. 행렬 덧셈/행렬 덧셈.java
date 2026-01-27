@@ -2,32 +2,27 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
-        int[][] arr = new int[N][M];
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        int[][] result = new int[n][m];
         for(int i=0; i<2; i++) {
-            for(int j=0; j<N; j++) {
-                st = new StringTokenizer(br.readLine(), " ");
-                for(int k=0; k<M; k++) {
-                    arr[j][k] += Integer.parseInt(st.nextToken());
+            for(int j=0; j<n; j++) {
+                st = new StringTokenizer(br.readLine());
+                for(int k=0; k<m; k++) {
+                    result[j][k] += Integer.parseInt(st.nextToken());
                 }
             }
         }
-        
-        br.close();
-        
-        for(int i=0; i<N; i++) {
-            for(int j=0; j<M; j++) {
-                bw.write(arr[i][j]+" ");
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<result.length; i++) {
+            for(int j=0; j<result[i].length; j++) {
+                sb.append(result[i][j] + " ");
             }
-            bw.write("\n");
+            sb.append("\n");
         }
-        
-        bw.flush();
-        bw.close();
+        System.out.print(sb.toString());
     }
 }
