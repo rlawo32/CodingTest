@@ -4,28 +4,21 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
-        String N = st.nextToken();
-        int B = Integer.parseInt(st.nextToken());
-        br.close();
-
-        int tmp = 1;
-        int sum = 0;
-
-        for(int i = N.length()-1 ; i >= 0; i--){ // 여기서, 맨오른쪽 부터 계산!
-            char C = N.charAt(i);
-            
-            if ('A' <= C && C<= 'Z') {
-                sum += (C - 'A' + 10) * tmp;
+        String s = st.nextToken();
+        int n = Integer.parseInt(st.nextToken());
+        int power = 0;
+        long result = 0L;
+        for(int i=s.length()-1; i>=0; i--) {
+            char c = s.charAt(i);
+            int j = 0;
+            if(c >= 'A' && c <= 'Z') {
+                j = c-'A'+10;
             } else {
-                sum += (C - '0') * tmp;
-            }
-            tmp *= B;
+                j = c-'0';
+            } 
+            result += j * (Math.pow(n, power++));
         }
-        bw.write(sum+"");
-        bw.flush();
-        bw.close();
+        System.out.print(result);
     }
 }
